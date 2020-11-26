@@ -1,6 +1,9 @@
 let express = require ('express')
 
 let app = express()
+
+app.use(express.urlencoded({extended: false}))
+
 app.get('/', function(req, res){
     res.send(`
     <!DOCTYPE html>
@@ -56,7 +59,7 @@ app.get('/', function(req, res){
 })
 
 app.post('/create-item', function(req, res){
-  console.log("Make this dynamic right now")
+  console.log(req.body.item)
   res.send("Thankyou for submitting the form")
 })
 
