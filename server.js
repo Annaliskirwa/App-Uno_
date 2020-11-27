@@ -14,6 +14,9 @@ mongodb.connect(connectionString, {useNewUrlParser: true, useUnifiedTopology: tr
 app.use(express.urlencoded({extended: false}))
 
 app.get('/', function(req, res){
+  db.collection('items').find().toArray(function(err, items){
+    console.log(items)
+  })
     res.send(`
     <!DOCTYPE html>
 <html>
