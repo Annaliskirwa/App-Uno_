@@ -67,7 +67,7 @@ app.post('/create-item', function(req, res){
   db.collection('items').insertOne({text: req.body.item}, function(){
     res.redirect('/')
   })
-  
+e
 })
 
 app.post('/update-item', function(req, res){
