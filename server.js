@@ -5,6 +5,8 @@ let app = express()
 
 let db
 
+app.use(express.static('public'))
+
 let connectionString = 'mongodb+srv://todoAppUser:kirwa9431@cluster0.sftiy.mongodb.net/TodoApp?retryWrites=true&w=majority'
 mongodb.connect(connectionString, {useNewUrlParser: true, useUnifiedTopology: true}, function(err, client){
   db = client.db()
@@ -51,6 +53,7 @@ app.get('/', function(req, res){
     
   </div>
   
+  <script src = "/browser.js" ></script>
 </body>
 </html>
     `)
