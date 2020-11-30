@@ -53,6 +53,7 @@ app.get('/', function(req, res){
     
   </div>
   
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src = "/browser.js" ></script>
 </body>
 </html>
