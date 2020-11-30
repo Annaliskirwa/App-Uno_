@@ -13,6 +13,7 @@ mongodb.connect(connectionString, {useNewUrlParser: true, useUnifiedTopology: tr
   app.listen(3000)
 })
 
+app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
 app.get('/', function(req, res){
@@ -69,4 +70,8 @@ app.post('/create-item', function(req, res){
   
 })
 
+app.post('/update-item', function(req, res){
+  console.log(req.body.text)
+  res.send("Success")
+})
 
