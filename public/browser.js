@@ -1,3 +1,8 @@
+//Create feature
+document.getElementById("create-form").addEventListener("submit", function(e){
+  e.preventDefault()
+})
+
 document.addEventListener("click", function(e){
   //Delete me
   if (e.target.classList.contains("delete-me")) {
