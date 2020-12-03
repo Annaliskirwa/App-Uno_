@@ -1,6 +1,7 @@
+//Create feature
 let createField = document.getElementById("create-field")
 
-//Create feature
+
 document.getElementById("create-form").addEventListener("submit", function(e){
   e.preventDefault()
   axios.post('/create-item', {text: createField.value}).then(function(){
