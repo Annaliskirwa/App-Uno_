@@ -1,4 +1,4 @@
-function itemTemplate(){
+function itemTemplate(item){
   return `<li class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
   <span class="item-text">${item.text}</span>
   <div>
@@ -14,9 +14,9 @@ let createField = document.getElementById("create-field")
 
 document.getElementById("create-form").addEventListener("submit", function(e){
   e.preventDefault()
-  axios.post('/create-item', {text: createField.value}).then(function(){
+  axios.post('/create-item', {text: createField.value}).then(function(response){
    //Create HTML for a new item
-   document.getElementById("item-list").insertAdjacentHTML("beforeend", itemTemplate())
+   document.getElementById("item-list").insertAdjacentHTML("beforeend", itemTemplate(response.data))
 }).catch(function(){
   console.log("Try again later")})
 })
