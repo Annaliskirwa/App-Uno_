@@ -9,7 +9,9 @@ function itemTemplate(item){
 }
 
 //Initial page render
-ourHTML = "Hello"
+let ourHTML = items.map(function(item){
+  return itemTemplate(item)
+}).join('')
 document.getElementById("item-list").insertAdjacentHTML("beforeend", ourHTML)
 
 //Create feature
