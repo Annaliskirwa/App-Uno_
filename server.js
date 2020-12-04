@@ -17,8 +17,13 @@ app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
 function passwordProtected(req, res, next){
-  console.log("Our custom function just ran")
-  next()
+  res.set('WWW-Authenticate','Basic realm = "Simple Todo App"')
+  console.log(req.headers.authorization)
+  if (req.headers.authorization == "Basic QW5uYWxpc2U6QW5uYWxpc2U="){
+    next()
+  }else{
+    res.status(401).send("Authorization required")
+  }
 }
 
 app.get('/', passwordProtected, function(req, res){
