@@ -16,7 +16,12 @@ mongodb.connect(connectionString, {useNewUrlParser: true, useUnifiedTopology: tr
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
-app.get('/', function(req, res){
+function passwordProtected(req, res, next){
+  console.log("Our custom function just ran")
+  next()
+}
+
+app.get('/', passwordProtected, function(req, res){
   db.collection('items').find().toArray(function(err, items){
     res.send(`
     <!DOCTYPE html>
