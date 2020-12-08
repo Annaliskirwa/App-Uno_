@@ -85,7 +85,7 @@ app.post('/create-item', function(req, res){
 })
 
 app.post('/update-item', function(req, res){
-  db.collection('items').findOneAndUpdate({_id: new mongodb.ObjectId(req.body.id)}, {$set: {text: safeText}}, function(){
+  db.collection('items').findOneAndUpdate({_id: new mongodb.ObjectId(req.body.id)}, {$set: {text:(req.body.text)}}, function(){
     res.send("Success")
   })
 })
